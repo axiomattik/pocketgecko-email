@@ -1,4 +1,4 @@
-![email in a gecko's pocket](icon.jpg)
+![email in a gecko's pocket](banner772x250.png)
 
 # PocketGecko Email
 
