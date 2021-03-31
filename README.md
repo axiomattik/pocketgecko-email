@@ -1,3 +1,5 @@
+![email in a gecko's pocket](icon.jpg)
+
 # PocketGecko Email
 
 > WordPress plugin that provides an email settings page to configure `wp_mail` and simplifies sending emails using POST or AJAX. 
