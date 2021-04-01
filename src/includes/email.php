@@ -15,7 +15,7 @@ function pgem_create_email_options() {
     'smtp_host' => 'smtp.gmail.com',
     'smtp_port' => 465,
     'smtp_encryption_type' => 'SSL',
-    'smtp_authentication' => true,
+    'smtp_authentication' => 'true',
     'smtp_username' => $user->user_email,
     'smtp_password' => '',
   );
