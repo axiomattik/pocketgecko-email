@@ -1,15 +1,15 @@
 (function() {
 
-  pgem.ajaxifyForm = function(id, success=console.log, error=console.log) {
+  pgem.ajaxifyForm = function(
+      form, 
+      submit=null,
+      success=console.log, 
+      error=console.log) {
     // Takes a form id and replaces its default 
     // submission behaviour with an ajax request.
-
-    const form = document.querySelector('#' + id);
-    if ( form == null ) {
-      return;
-    }
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+      if ( typeof(submit) == 'function') submit();
       const data = new FormData(form);
       pgem.sendForm(data)
         .then(d => success(d))
@@ -68,15 +68,39 @@
       .catch(e => error(e));
   }
 
-  pgem.ajaxifyForm('pocketgecko-email',
-    success=function() {
+  window.addEventListener('load', function() {
+    let form = document.querySelector('#pocketgecko-email');
+    if ( form == null ) return;
+    let btn = document.querySelector('#pocketgecko-email>input[type="submit"]');
+    let output = document.querySelector('#pocketgecko-email>output');
 
-    },
-    error=function() {
+    pgem.ajaxifyForm(form,
 
-    }
-  );
+      submit = function() {
+        btn.disabled = true;
+        output.innerHTML = "<strong>" + pgem.sendingString + "<span id='pgem-dots'></span></strong>";
+        window.sendingInterval = setInterval(function() {
+          let dots = document.querySelector('#pgem-dots');
+          dots.innerText += '.';
+          if ( dots.innerText.length > 6 ) {
+            dots.innerText = '';
+          }
+        }, 200);
+      },
 
+      success = function(data) {
+        btn.disabled = false;
+        output.innerHTML = "<strong>" + data + "</strong>";
+        clearInterval(window.sendingInterval);
+      },
+
+      error = function(err) {
+        btn.disabled = false;
+        output.innerHTML = "<strong>" + error + "</strong>";
+        clearInterval(window.sendingInterval);
+      });
+
+  });
 
 
 })();
