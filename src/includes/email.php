@@ -96,13 +96,13 @@ function pgem_send_email() {
   }
 
   if ( ! current_user_can( 'publish_posts') 
-       && isset( $_POST['cc'] ) {
+       && isset( $_POST['cc'] ) ) {
     echo __( "Error: only users with the 'publish_posts' capability can send carbon copies.\n", 'pocketgecko-email' );
     $has_error = true;
   }
 
   if ( ! current_user_can( 'publish_posts') 
-       && isset( $_POST['bcc'] ) {
+       && isset( $_POST['bcc'] ) ) {
     echo __( "Error: only users with the 'publish_posts' capability can send blind carbon copies.\n", 'pocketgecko-email' );
     $has_error = true;
   }

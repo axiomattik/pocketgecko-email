@@ -65,35 +65,47 @@ msgstr ""
 msgid "Password to login to your mail server"
 msgstr ""
 
-#: src/includes/email.php:77
+#: src/includes/email.php:64
 msgid "Email sent successfully."
 msgstr ""
 
-#: src/includes/email.php:95, src/includes/email.php:120
-msgid ""
-"Error: an email requires a recipient.\n"
-""
-msgstr ""
-
-#: src/includes/email.php:100
-msgid ""
-"Error: recipient not allowed.\n"
-""
-msgstr ""
-
-#: src/includes/email.php:113
+#: src/includes/email.php:81
 msgid ""
 "Error: request not authenticated.\n"
 ""
 msgstr ""
 
-#: src/includes/email.php:125
+#: src/includes/email.php:88
+msgid ""
+"Error: an email requires a recipient.\n"
+""
+msgstr ""
+
+#: src/includes/email.php:94
+msgid ""
+"Error: only users with the 'publish_posts' capability can send emails to non-default recipients.\n"
+""
+msgstr ""
+
+#: src/includes/email.php:100
+msgid ""
+"Error: only users with the 'publish_posts' capability can send carbon copies.\n"
+""
+msgstr ""
+
+#: src/includes/email.php:106
+msgid ""
+"Error: only users with the 'publish_posts' capability can send blind carbon copies.\n"
+""
+msgstr ""
+
+#: src/includes/email.php:111
 msgid ""
 "Error: an email requires a subject.\n"
 ""
 msgstr ""
 
-#: src/includes/email.php:130
+#: src/includes/email.php:116
 msgid ""
 "Error: an email requires a body.\n"
 ""
