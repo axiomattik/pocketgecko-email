@@ -7,30 +7,36 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Provides an email settings page and simplifies sending emails using POST/AJAX.
+Makes it easy to configure and send emails using POST/AJAX.
 
 == Description ==
 
-PocketGecko Email makes it easy to configure `wp_mail` using basic authentication so other plugins that try to send emails will function correctly. 
+PocketGecko Email provides a settings page `(Settings -> Email)` to connect WordPress to an email server using basic authentication (username/password). This allows any other plugin that uses `wp_mail` to function correctly.
 
-This plugin also sets up two endpoints for internal use at `/wp-admin/admin-post.php` and `/wp-admin/admin-ajax.php` which accept POST or AJAX requests for sending emails. These endpoints support sending Cc and Bcc. Emails may also be sent with one or multiple file attachments, which are automatically uploaded to the Media Library.
+PocketGecko Email also provides the shortcode `[pocketgecko-email]` which renders a simple HTML form for sending email. This form supports custom recipients, carbon copies, blind carbon copies, and sending emails with one or more attachments. Any attachments sent using PocketGecko Email are automatically uploaded to the Media Library.
 
-Only privileged users are able to send emails to arbitrary recipients. Non-priveleged users are restricted to sending emails only to the account used for sending them. 
+Full functionality is restricted to users who possess the 'publish_posts' capability. Users, including guests, who do not have this capability cannot send carbon copies or blind carbon copies, and are restricted to sending emails back to the account used to send them.
 
-The plugin also implements several front-end JavaScript functions under the `pgem` namespace: `ajaxifyForm`, `sendForm` and `sendEmail` that can simplify sending emails or implementing HTML forms that submit to the AJAX endpoint.
+By default, PocketGecko Email attempts to 'ajaxify' the HTML form to provide an interactive user experience. If, however, JavaScript is not available, then the form will fallback to using POST instead.
+
+Two `send_email` endpoints are created at `/wp-admin/admin-post.php` and `/wp-admin/admin-ajax.php`. These can be used by other plugins or in your own custom functions.php, JavaScript or HTML to send emails. For security reasons, use of the endpoints must be authenticated with a nonce.
+
+There are plans to make the email form available as a Gutenberg block.
+
+= Privacy Notices =
+
+No information about emails sent using PocketGecko Emails is stored by the plugin, except for email attachments which are uploaded to the Media Library. 
 
 = Docs and Support =
 
-https://pocketgecko.co.uk/email/docs
+Documentation is currently in progress and will be made available [here](https://pocketgecko.co.uk/wp-plugins/email/docs).
 
+Support is available on the [forums](https://wordpress.org/plugins/search/pocketgecko-email/).
 
-= Screenshots =
+== Screenshots ==
 
-1. The settings page having successfuly sent a test email.
-2. A email form rendered by the Twenty Twenty-One theme.
-
-== Privacy Notices ==
-
+1. The settings page
+2. Email form as rendered by the Twenty Twenty-One theme
 
 == Changelog ==
 
