@@ -3,6 +3,22 @@
   <input type="hidden" name="action" value="send_email">
   <?php wp_nonce_field( 'send_email', 'pgem-nonce' ); ?>
 
+
+  <?php 
+    $message = get_transient( 'pgem-message' );
+    $error = get_transient( 'pgem-error' );
+
+    if ( $message ) {
+      echo "<strong>$message</strong>";
+    }
+
+    if ( $error ) {
+      echo "<strong>$error</strong>";
+    }
+    delete_transient( 'pgem-message' );
+    delete_transient( 'pgem-error' );
+  ?>
+
   <fieldset>
 
     <?php if ( current_user_can( 'edit_posts' ) ): ?>
@@ -35,8 +51,8 @@
 
   </fieldset>
 
-  <p class="submit">
-    <input type="submit" class="button button-primary" value="Send">
-  </p>
+  <input type="submit" class="button button-primary" value="Send">
+
+  <output></output>
 
 </form>
