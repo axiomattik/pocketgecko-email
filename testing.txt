@@ -1,0 +1,11 @@
+can the plugin be activated?
+does the settings menu appear?
+can the settings be updated?
+can a test email be sent without attachments?
+can a test email be sent with one attachment?
+can a test email be sent with multiple attachments?
+does the frontend pgem load?
+does pgem.sendEmail succeed?
+can the plugin be deactivated?
+can the plugin be uninstalled?
+is there anything left in the database after uninstallation?
