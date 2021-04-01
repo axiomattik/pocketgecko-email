@@ -15,6 +15,7 @@ function pgem_enqueue_scripts() {
     'url' => '/wp-admin/admin-ajax.php',
     'action' => 'send_email',
     'nonce' => wp_create_nonce( 'send_email' ),
+    'sendingString' => __( 'Sending', 'pocketgecko-email' ),
   ) );
 }
 

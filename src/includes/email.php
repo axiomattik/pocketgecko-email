@@ -45,7 +45,7 @@ add_action( 'wp_ajax_nopriv_send_email', 'pgem_ajax_send_email' );
 add_action( 'wp_ajax_send_email', 'pgem_ajax_send_email' );
 function pgem_ajax_send_email() {
   if ( pgem_send_email() ) {
-    echo 'ok';
+    echo __( 'Email sent successfully.', 'pocketgecko-email' );
   }
   wp_die();
 }
