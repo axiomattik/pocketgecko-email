@@ -40,34 +40,21 @@ function pgem_phpmailer_init($phpmailer) {
 }
 
 
-
 // AJAX endpoint
-add_action( 'wp_ajax_nopriv_send_email', 'pgem_ajax_nopriv_send_email' );
-function pgem_ajax_nopriv_send_email() {
-  if ( pgem_nopriv_send_email() ) {
-    pgem_ajax_send_email();
-  } 
-  wp_die();
-}
-
+add_action( 'wp_ajax_nopriv_send_email', 'pgem_ajax_send_email' );
 add_action( 'wp_ajax_send_email', 'pgem_ajax_send_email' );
 function pgem_ajax_send_email() {
-  pgem_send_email();
+  if ( pgem_send_email() ) {
+    echo 'ok';
+  }
   wp_die();
 }
 
 
-// Standard POST endpoint
-add_action( 'admin_post_nopriv_send_email', 'pgem_admin_nopriv_send_email' );
-function pgem_admin_nopriv_send_email() {
-  if ( pgem_nopriv_send_email() ) {
-    pgem_admin_send_email();
-  } 
-  pgem_admin_redirect();
-}
-
-add_action( 'admin_post_send_email', 'pgem_admin_send_email' );
-function pgem_admin_send_email() {
+// POST endpoint
+add_action( 'admin_post_nopriv_send_email', 'pgem_post_send_email' );
+add_action( 'admin_post_send_email', 'pgem_post_send_email' );
+function pgem_post_send_email() {
   ob_start();
   $sent = pgem_send_email();
   $error = ob_get_clean();
@@ -86,25 +73,6 @@ function pgem_admin_send_email() {
 }
 
 
-function pgem_nopriv_send_email() {
-  // a non-privileged request should not send emails to arbitrary addresses
-  // so the recipient is restricted to 'smtp_username'
-  // return true if the recipient is 'default', false otherwise
-
-  if ( ! isset( $_POST['recipient'] ) ) {
-    echo __( "Error: an email requires a recipient.\n", 'pocketgecko-email' );
-    return false;
-  }
-
-  if ( $_POST['recipient'] != 'default' ) {
-    echo __( "Error: recipient not allowed.\n", 'pocketgecko-email' );
-    return false;
-  }
-
-  return true;
-}
-
-
 function pgem_send_email() {
   // check nonce
   if ( ! isset( $_POST['pgem-nonce'] )
@@ -118,6 +86,24 @@ function pgem_send_email() {
   $has_error = false;
   if ( ! isset( $_POST['recipient'] ) ) {
     echo __( "Error: an email requires a recipient.\n", 'pocketgecko-email' );
+    $has_error = true;
+  }
+
+  if ( ! current_user_can( 'publish_posts') 
+       && $_POST['recipient'] != 'default' ) {
+    echo __( "Error: only users with the 'publish_posts' capability can send emails to non-default recipients.\n", 'pocketgecko-email' );
+    $has_error = true;
+  }
+
+  if ( ! current_user_can( 'publish_posts') 
+       && isset( $_POST['cc'] ) {
+    echo __( "Error: only users with the 'publish_posts' capability can send carbon copies.\n", 'pocketgecko-email' );
+    $has_error = true;
+  }
+
+  if ( ! current_user_can( 'publish_posts') 
+       && isset( $_POST['bcc'] ) {
+    echo __( "Error: only users with the 'publish_posts' capability can send blind carbon copies.\n", 'pocketgecko-email' );
     $has_error = true;
   }
 
