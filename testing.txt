@@ -9,3 +9,6 @@ does pgem.sendEmail succeed?
 can the plugin be deactivated?
 can the plugin be uninstalled?
 is there anything left in the database after uninstallation?
+can pocketgecko-email form send an email with ajax?
+can pocketgecko-email form send an email with post?
+can a guest or a user without 'edit_posts' capability send an email to an arbitrary recipient?
