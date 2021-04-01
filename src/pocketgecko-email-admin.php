@@ -323,4 +323,3 @@ function pgem_gen_render_checkbox_input($attributes, $description) {
 
 }
 
-

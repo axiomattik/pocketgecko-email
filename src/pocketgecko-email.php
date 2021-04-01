@@ -40,4 +40,3 @@ function pgem_deactivate() {
 
 }
 
-?>

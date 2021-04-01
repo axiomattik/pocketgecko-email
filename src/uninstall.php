@@ -11,4 +11,3 @@ foreach ( $wpdb->get_results($sql) as $opt ) {
     delete_option($opt);
 }
 
-?>

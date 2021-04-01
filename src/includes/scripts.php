@@ -18,4 +18,3 @@ function pgem_enqueue_scripts() {
   ) );
 }
 
-?>
