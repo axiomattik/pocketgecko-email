@@ -1,6 +1,6 @@
 <?php
 
-add_shortcode( 'pocketgecko_email', 'pgem_form_shortcode' );
+add_shortcode( 'pocketgecko-email', 'pgem_form_shortcode' );
 function pgem_form_shortcode( $atts, $content, $tag ) {
   ob_start();
   
