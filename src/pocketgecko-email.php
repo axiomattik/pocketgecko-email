@@ -41,3 +41,12 @@ function pgem_deactivate() {
 
 }
 
+
+add_filter( "plugin_action_links_pocketgecko-email/pocketgecko-email.php", "pgem_settings_link" );
+function pgem_settings_link($links) {
+  $link = '<a href="options-general.php?page=pgem_settings_menu">Settings</a>';
+  array_unshift( $links, $link );
+  return $links;
+}
+
+
