@@ -1,13 +1,13 @@
 === PocketGecko Email ===
 Contributors: axiomattik
 Tags: smtp, email, post, ajax, settings, options
-Requires at least: 5.7
+Requires at least: 5.0
 Tested up to: 5.7
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Provides an email settings page and simplifies sending emails using HTML forms.
+Provides an email settings page and simplifies sending emails using POST/AJAX.
 
 == Description ==
 
@@ -19,11 +19,17 @@ Only privileged users are able to send emails to arbitrary recipients. Non-prive
 
 The plugin also implements several front-end JavaScript functions under the `pgem` namespace: `ajaxifyForm`, `sendForm` and `sendEmail` that can simplify sending emails or implementing HTML forms that submit to the AJAX endpoint.
 
+= Docs and Support =
 
-== Screenshots ==
+https://pocketgecko.co.uk/email/docs
 
-1. description of screenshot-1.(png|jpg|jpeg|gif) stored in /assets
-2. a second description
+
+= Screenshots =
+
+1. The settings page having successfuly sent a test email.
+2. A email form rendered by the Twenty Twenty-One theme.
+
+== Privacy Notices ==
 
 
 == Changelog ==
@@ -31,3 +37,6 @@ The plugin also implements several front-end JavaScript functions under the `pge
 = 1.0 =
 * Release
 
+== Copyright ==
+
+Icons provided by fontawesome.com - [license](https://fontawesome.com/license)
