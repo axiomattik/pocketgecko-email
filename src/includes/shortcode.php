@@ -2,6 +2,8 @@
 
 add_shortcode( 'pocketgecko_email', 'pgem_form_shortcode' );
 function pgem_form_shortcode( $atts, $content, $tag ) {
+  ob_start();
+  
   $title = "Send Email";
   $attachments = false;
 
@@ -13,4 +15,5 @@ function pgem_form_shortcode( $atts, $content, $tag ) {
   }
 
   require __DIR__. '/templates/email-form.php';
+  return ob_get_clean();
 }
