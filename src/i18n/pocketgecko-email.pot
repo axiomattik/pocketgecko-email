@@ -65,7 +65,7 @@ msgstr ""
 msgid "Password to login to your mail server"
 msgstr ""
 
-#: src/includes/email.php:64
+#: src/includes/email.php:48, src/includes/email.php:64
 msgid "Email sent successfully."
 msgstr ""
 
@@ -109,6 +109,10 @@ msgstr ""
 msgid ""
 "Error: an email requires a body.\n"
 ""
+msgstr ""
+
+#: src/includes/scripts.php:18
+msgid "Sending"
 msgstr ""
 
 #: src/includes/templates/email-options.php:7
