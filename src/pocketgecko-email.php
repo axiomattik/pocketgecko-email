@@ -27,6 +27,7 @@ if ( is_admin() ) {
 
 require_once __DIR__ . '/includes/email.php';
 require_once __DIR__ . '/includes/scripts.php';
+require_once __DIR__ . '/includes/shortcode.php';
 
 
 register_activation_hook( __FILE__, 'pgem_activate' );
