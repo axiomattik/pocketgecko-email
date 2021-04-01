@@ -12,7 +12,7 @@ function pgem_create_email_options() {
   $options = array(
     'smtp_from_email' => $user->user_email,
     'smtp_from_name' => $user->display_name,
-    'smtp_host' => 'smtp.gmail.com',
+    'smtp_host' => '',
     'smtp_port' => 465,
     'smtp_encryption_type' => 'SSL',
     'smtp_authentication' => 'true',
