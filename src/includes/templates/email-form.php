@@ -3,7 +3,7 @@
   <input type="hidden" name="action" value="send_email">
   <?php wp_nonce_field( 'send_email', 'pgem-nonce' ); ?>
 
-  <?php if ( current_user_can( 'edit_posts' ): ?>
+  <?php if ( current_user_can( 'edit_posts' ) ): ?>
 
     <label for="recipient">Recipient: </label>
     <input id="recipient" type="text" name="recipient" required>
@@ -18,7 +18,7 @@
 
     <input type="hidden" name="recipient" value="default">
 
-  <? endif; ?>
+  <?php endif; ?>
 
   <label for="subject">Subject: </label>
   <input id="subject" type="text" name="subject" required>
